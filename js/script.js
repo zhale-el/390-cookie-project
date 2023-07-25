@@ -1,14 +1,12 @@
-const setCookieBtn = document.querySelector("button");
-const getCookieBtn = document.querySelector("#get-cookie");
-const removeCookieBtn = document.querySelector("#remove-cookie");
+const username = document.querySelector("#username");
+const password = document.querySelector("# password");
+const rememberMecheckbox = document.querySelector(".ck");
 
-setCookieBtn.addEventListener("click", () => {
+function setCookie(cookieName, cookieValue, exDay) {
   const now = new Date();
-
-  let expiresDay = now.setTime(now.getTime() + 2 * 24 * 60 * 60 * 1000);
-  console.log(now);
-  document.cookie = `userjob=developer;path=/;expires=${now}`;
-});
+  now.setTime(now.getTime() + exDay * 24 * 60 * 60 * 1000);
+  document.cookie = `${cookieName}=${cookieValue};path=/;expires=${now}`;
+}
 
 getCookieBtn.addEventListener("click", () => {
   let mainCookieName = prompt("Enter the name");
