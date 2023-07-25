@@ -1,5 +1,5 @@
-const username = document.querySelector("#username");
-const password = document.querySelector("# password");
+const usernameInput = document.querySelector("#username");
+const passwordInput = document.querySelector("# password");
 const rememberMecheckbox = document.querySelector(".ck");
 
 function setCookie(cookieName, cookieValue, exDay) {
@@ -18,3 +18,10 @@ function getCookie(cookieName) {
 
   return mainCookie;
 }
+
+rememberMecheckbox.addEventListener("click", (event) => {
+  event.preventDefault();
+  if (rememberMecheckbox.checked) {
+    setCookie("login-token", usernameInput.value, 9);
+  }
+});
